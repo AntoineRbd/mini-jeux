@@ -18,3 +18,4 @@ struct secret_code {
 
 struct secret_code secret_code_generator(void);
 void print_secret_code(struct secret_code sc);
+void print_player_code(struct secret_code sc);

@@ -109,3 +109,83 @@ void print_secret_code(struct secret_code sc) {
     
     printf("\n");
 }
+
+void print_player_code(struct secret_code sc) {
+    printf("You chose the following code:\n ");
+
+    switch(sc.color1) {
+            case 0:
+                printf("RED");
+                break;
+            case 1:
+                printf("BLUE");
+                break;
+            case 2:
+                printf("GREEN");
+                break;
+            case 3:
+                printf("YELLOW");
+                break;
+            default:
+                break;
+    };
+    
+    printf(" - ");
+
+    switch(sc.color2) {
+            case 0:
+                printf("RED");
+                break;
+            case 1:
+                printf("BLUE");
+                break;
+            case 2:
+                printf("GREEN");
+                break;
+            case 3:
+                printf("YELLOW");
+                break;
+            default:
+                break;
+    };
+    
+    printf(" - ");
+
+    switch(sc.color3) {
+            case 0:
+                printf("RED");
+                break;
+            case 1:
+                printf("BLUE");
+                break;
+            case 2:
+                printf("GREEN");
+                break;
+            case 3:
+                printf("YELLOW");
+                break;
+            default:
+                break;
+    };
+    
+    printf(" - ");
+
+    switch(sc.color4) {
+            case 0:
+                printf("RED");
+                break;
+            case 1:
+                printf("BLUE");
+                break;
+            case 2:
+                printf("GREEN");
+                break;
+            case 3:
+                printf("YELLOW");
+                break;
+            default:
+                break;
+    };
+    
+    printf("\n");
+}
