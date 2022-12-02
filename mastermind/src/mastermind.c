@@ -21,6 +21,31 @@ int *input_code(int *lpBuffer, size_t nBufSize)
     return lpBuffer;
 }
 
+bool check_color_valid(struct secret_code pc) {
+    bool color1_valid = false;
+    bool color2_valid = false;
+    bool color3_valid = false;
+    bool color4_valid = false;
+
+    if(0 <= pc.color1 && pc.color1 <= 3){
+        color1_valid = true;
+    }
+
+    if(0 <= pc.color2 && pc.color2 <= 3){
+        color2_valid = true;
+    }
+
+    if(0 <= pc.color3 && pc.color3 <= 3){
+        color3_valid = true;
+    }
+
+    if(0 <= pc.color4 && pc.color4 <= 3){
+        color4_valid = true;
+    }
+
+    return color1_valid && color2_valid && color3_valid && color4_valid;
+}
+
 void play_mastermind(struct secret_code sc, struct secret_code pc) {
     bool is_color1_good = false;
     bool is_color2_good = false;

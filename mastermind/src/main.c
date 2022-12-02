@@ -1,5 +1,8 @@
 #include "color.h"
 #include "mastermind.h"
+
+#include <stdio.h>
+#include <stdbool.h>
  
 int main()
 {
@@ -40,9 +43,15 @@ int main()
             };
         }
 
-        print_player_code(player_code);
+        bool color_valid = check_color_valid(player_code);
+        if (!color_valid) {
+            printf("Color are not valid, retry...\n");
+        }
+        else {
+            print_player_code(player_code);
 
-        //play_mastermind(sc, player_code);
+            play_mastermind(sc, player_code);
+        }
     }
  
     return 0;
