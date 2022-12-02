@@ -1,8 +1,8 @@
 CC=gcc
 CFLAGS=-I -Wall -Werror -Wextra -pedantic -std=c99
-OBJ =  main.c color.c mastermind.c
+OBJ =  main.o  color.o mastermind.o
 
-%.o: %.c $(DEPS)
+%.o: %.c $(EPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 mastermind: $(OBJ)

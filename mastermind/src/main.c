@@ -41,6 +41,8 @@ int main()
         }
 
         print_player_code(player_code);
+
+        //play_mastermind(sc, player_code);
     }
  
     return 0;

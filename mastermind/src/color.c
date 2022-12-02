@@ -1,5 +1,10 @@
 #include "color.h"
 
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+
+
 struct secret_code;
 
 struct secret_code secret_code_generator(void) {
