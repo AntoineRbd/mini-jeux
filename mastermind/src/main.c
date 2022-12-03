@@ -16,6 +16,8 @@ int main()
     struct secret_code player_code;
     int code[4];
 
+    int turn = 1;
+
     while (1) {
      
         printf("Chose your code:\n- RED = 0\n- BLUE = 1\n- GREEN = 2\n- YELLOW = 3\n");
@@ -55,8 +57,13 @@ int main()
             if (play_mastermind(sc, player_code) == 1) {
                 return 0;
             }
+
+            turn += 1;
+        }
+
+        if (turn == 12) {
+            printf("\nYou reach 12 proposition and you didn't find. You loose :(\n");
+            return 0;
         }
     }
- 
-    return 0;
 }
