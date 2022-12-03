@@ -15,8 +15,8 @@ The programm will ask you to put you first combination with this following forma
 
 Where each **#** represent a color number 
 ```
-RED     1
-BLUE    2
-GREEN   3
-YELLOW  4
+RED     0
+BLUE    1
+GREEN   2
+YELLOW  3
 ```
