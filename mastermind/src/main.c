@@ -24,6 +24,8 @@ int main()
 
         //printf("Your code : %s\n", code);
 
+        printf("\n");
+
         for(int i = 0; i < 4; i++){
             switch(i){
                 case 0:
@@ -50,7 +52,9 @@ int main()
         else {
             print_player_code(player_code);
 
-            play_mastermind(sc, player_code);
+            if (play_mastermind(sc, player_code) == 1) {
+                return 0;
+            }
         }
     }
  
