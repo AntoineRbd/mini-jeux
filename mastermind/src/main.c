@@ -8,7 +8,7 @@ int main()
 {
     
     struct secret_code sc = secret_code_generator();
-    print_secret_code(sc);
+    //print_secret_code(sc);
 
     printf(" --- Start game ! --- \n");
 
