@@ -5,6 +5,10 @@ I. [Mastermind](#mastermind)
 1. [Rule](#rule)
 2. [How to Play](#how_to_play)
 
+II. [Snake](#snake)
+1. [How to play](#how_to_play)
+
+
 ## Mastermind 
 ### Rules
 The object of MASTERMIND is to guess a secret code consisting of a series of 4
@@ -40,3 +44,16 @@ BLUE    1
 GREEN   2
 YELLOW  3
 ```
+
+## Snake
+### How to play
+To play snake, go to `snake/src`, then run
+```
+make
+./snake
+```
+
+There is multiple option :
+    -h : Help, provide you an help with different options aviable.
+    -E : Easy mode, playe with easy mode. You don't die if you toutch screen edge.
+    -H : Hard mode, snake is goes very fast !
