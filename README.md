@@ -1,9 +1,9 @@
 # mini-jeux
 
 # Table of Contents
-[Mastermind](#mastermind)
-    [Rule](#rule)
-    [How to Play](#how_to_play)
+I. [Mastermind](#mastermind)
+    1. [Rule](#rule)
+    2. [How to Play](#how_to_play)
 
 ## Mastermind 
 ### Rules
