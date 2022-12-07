@@ -215,10 +215,24 @@ int play_mastermind(struct secret_code sc, struct secret_code pc) {
     if (is_color4_good)
         color_count(pc.color4, &red_count, &blue_count, &green_count, &yellow_count);
 
-    int color1_present = check_color_present(pc.color1, red_count, blue_count, green_count, yellow_count);
-    int color2_present = check_color_present(pc.color2, red_count, blue_count, green_count, yellow_count);
-    int color3_present = check_color_present(pc.color3, red_count, blue_count, green_count, yellow_count);
-    int color4_present = check_color_present(pc.color4, red_count, blue_count, green_count, yellow_count);
+    int color1_present = 0;
+    int color2_present = 0;
+    int color3_present = 0;
+    int color4_present = 0;
+
+    color1_present = check_color_present(pc.color1, red_count, blue_count, green_count, yellow_count);
+    if (pc.color2 != pc.color1){
+        color2_present = check_color_present(pc.color2, red_count, blue_count, green_count, yellow_count);
+        //printf("Color 2: %d\n", pc.color2);
+    }
+    if (pc.color3 != pc.color1 && pc.color3 != pc.color2){
+        color3_present = check_color_present(pc.color3, red_count, blue_count, green_count, yellow_count);
+        //printf("Color 3: %d\n", pc.color3);
+    }
+    if (pc.color4 != pc.color1 && pc.color4 != pc.color2 && pc.color4 != pc.color3){
+        color4_present = check_color_present(pc.color4, red_count, blue_count, green_count, yellow_count);
+        //printf("Color 4: %d\n", pc.color4);
+    }
 
     // Result
     int color_present = color1_present +
@@ -233,7 +247,7 @@ int play_mastermind(struct secret_code sc, struct secret_code pc) {
         return 1;
     }
 
-    printf("Present color: %d\n", color_present);
-    printf("Well placed color : %d\n", color_good);
+    printf("\nPresent color: %d\n", color_present);
+    printf("Well placed color : %d\n\n", color_good);
     return 0;
 }
