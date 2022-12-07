@@ -8,12 +8,6 @@
 
 #include <stddef.h>
 
- // Global variables
-char **grid = NULL;
-int line_number = 0;
-int column_number = 0;
-
-
 struct Cell {
   int line;
   int column;
@@ -34,13 +28,13 @@ struct Direction {
 typedef struct Direction Direction;
 
 Snake create_snake(void);
-void play_snake(Snake *snake, int line, int column, int *Eat, int *fail);
-void delete_queue(Snake *snake);
-void grid_init(void);
-void grid_print(Snake snake);
-void event_handle(Snake *snake, int key, int *fail, Direction *direction, int *Eat);
-void eat_item(char **grid);
-void print_fail(void);
+void play_snake(Snake *snake, int line, int column, int *Eat, int *fail, int line_number, int column_number, char **grid, int easy_mode);
+void delete_queue(Snake *snake, char **grid);
+void grid_init(int line_number, int column_number, char **grid);
+void grid_print(Snake snake, int line_number, int column_number, char **grid);
+void event_handle(Snake *snake, int key, int *fail, Direction *direction, int *Eat, int line_number, int column_number, char **grid, int easy_mode);
+void eat_item(char **grid, int line_number, int column_number);
+void print_fail(int line_number, int column_number);
 
 
 

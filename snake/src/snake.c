@@ -31,7 +31,7 @@ Snake create_snake(void) {
     return snake;
 }
 
-void play_snake(Snake *snake, int line, int column, int *Eat, int *fail) {
+void play_snake(Snake *snake, int line, int column, int *Eat, int *fail, int line_number, int column_number, char **grid, int easy_mode) {
     Cell *new_head = malloc(sizeof(Cell));
 
     new_head->line = line;
@@ -41,6 +41,26 @@ void play_snake(Snake *snake, int line, int column, int *Eat, int *fail) {
     snake->Snake_head->next = new_head;
     grid[(snake->Snake_head->line)][(snake->Snake_head->column)] = SNAKE_BODY;
     snake->Snake_head = snake->Snake_head->next;
+
+    if (easy_mode == 1) {
+    if (snake->Snake_head->line < 0) {
+      snake->Snake_head->line = line_number - 1;
+    }
+
+    else if (snake->Snake_head->line > line_number-1) {
+      snake->Snake_head->line = 0;
+    }
+    else if (snake->Snake_head->column < 0) {
+      snake->Snake_head->column = column_number - 1;
+    }
+    else if (snake->Snake_head->column > column_number - 1) {
+      snake->Snake_head->column = 0;
+    }
+    else if (grid[snake->Snake_head->line][snake->Snake_head->column] == SNAKE_BODY) {
+      *fail = 1;
+    }
+  }
+
     if (snake->Snake_head->line < 0 ||
             snake->Snake_head->line > line_number - 1 ||
             snake->Snake_head->column < 0 ||
@@ -53,7 +73,7 @@ void play_snake(Snake *snake, int line, int column, int *Eat, int *fail) {
     }
 }
 
-void delete_queue(Snake *snake) {
+void delete_queue(Snake *snake, char **grid) {
     Cell *auxi;
 
     auxi = snake->Snake_queue;
@@ -62,7 +82,7 @@ void delete_queue(Snake *snake) {
     free(auxi);
 }
 
-void grid_init(void) {
+void grid_init(int line_number, int column_number, char **grid) {
     for (int i = 0; i < line_number; i++) {
         for (int j = 0; j < column_number; j++) {
             grid[i][j] = EMPTY_CELL;
@@ -70,7 +90,7 @@ void grid_init(void) {
     }
 }
 
-void grid_print(Snake snake) {
+void grid_print(Snake snake, int line_number, int column_number, char **grid) {
     for (int i = 0; i < line_number; i++) {
         for (int j = 0; j < column_number; j++) {
             printw("%c",grid[i][j]);
@@ -78,7 +98,7 @@ void grid_print(Snake snake) {
     }
 }
 
-void event_handle(Snake *snake, int key, int *fail, Direction *direction, int *Eat) {
+void event_handle(Snake *snake, int key, int *fail, Direction *direction, int *Eat, int line_number, int column_number, char **grid, int easy_mode) {
     if (direction->line == 0) {
         if (key == KEY_UP){
             direction->line = -1;
@@ -102,11 +122,12 @@ void event_handle(Snake *snake, int key, int *fail, Direction *direction, int *E
         }
     }
 
+    play_snake(snake, snake->Snake_head->line + direction->line, snake->Snake_head->column + direction->column, Eat, fail, line_number, column_number, grid, easy_mode);
     if(!*Eat)
-        delete_queue(snake);
+        delete_queue(snake, grid);
 }
 
-void eat_item(char **grid) {
+void eat_item(char **grid, int line_number, int column_number) {
     int line = 0;
     int column = 0;
     int done = 0;
@@ -124,7 +145,7 @@ void eat_item(char **grid) {
     }
 }
 
-void print_fail(void) {
+void print_fail(int line_number, int column_number) {
     move(line_number / 2 - 5 / 2, column_number / 2 - 37 / 2);
     printw("    _/_/_/_/    _/_/    _/_/_/  _/   \n");
 
