@@ -54,6 +54,6 @@ make
 ```
 
 There is multiple option :
-    -h : Help, provide you an help with different options aviable.
-    -E : Easy mode, playe with easy mode. You don't die if you toutch screen edge.
-    -H : Hard mode, snake is goes very fast !
+-h : Help, provide you an help with different options aviable.
+-E : Easy mode, playe with easy mode. You don't die if you toutch screen edge.
+-H : Hard mode, snake is goes very fast !
